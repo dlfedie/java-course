@@ -24,22 +24,22 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
         int[] array = new int[3];
+        nextSmallestInt([1,2,3]);
 
 
     }
 
-    solution([1,2,3]);
 
 
-    public static void solution(int[] A) {
+
+    public static int nextSmallestInt(int[] A) {
         //
         int smallestPositive = 1;
         Arrays.sort(A);
         // so if the last # is not positive, just return 1
         if (A[A.length - 1] < 1) {
             System.out.println("lowest int: " + smallestPositive);
-//            return smallestPositive;
-            return;
+            return smallestPositive;
         }
         // create a new array with a value 2 higher than the last value in the initial array, so if #'s are sequential (1,2,3), we'll be able to return 4 (with 5 being the new "last" number)
         int[] newArray = new int[A.length + 1];
@@ -55,14 +55,14 @@ public class Main {
                 smallestPositive = newArray[j] + 1;
                 System.out.println("lowest int: " + smallestPositive);
 
-                return;
+                return smallestPositive;
             } else if (newArray[j + 1] - newArray[j] == 1) {
                 smallestPositive = newArray[j];
             }
         }
         System.out.println("lowest int: " + smallestPositive + 1);
 
-        return;
+        return smallestPositive + 1;
     }
 
 
